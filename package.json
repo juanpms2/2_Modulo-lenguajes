@@ -1,0 +1,23 @@
+{
+  "name": "2_modulo_lenguajes",
+  "version": "1.0.0",
+  "description": "Ejercicios modulo 2 lenguajes del máster front-end de lemoncode",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanpms2/2_Modulo-lenguajes.git"
+  },
+  "author": "Juan Pablo Martínez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanpms2/2_Modulo-lenguajes/issues"
+  },
+  "homepage": "https://github.com/juanpms2/2_Modulo-lenguajes#readme",
+  "devDependencies": {
+    "parcel": "^1.12.4"
+  }
+}
