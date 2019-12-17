@@ -1,6 +1,7 @@
 // EJERCICIO 1 - ARRAY OPERATION
 
 const myArray = [ 1, 2, 3, 4, 5 ];
+const myArray2 = [ "hello", "world" ];
 
 // Implementa una función head (inmutable), tal que, dado un array como entrada extraiga y devuelva su primer elemento. Utiliza destructuring.
  
@@ -15,31 +16,36 @@ console.log( head( myArray ) );
 
 const tail = ( [...array] ) => {
     const [ , ...rest ] = array;
-    rest.forEach(element => {
-        console.log( element );
-    });
+    return rest.toString();
 }
-tail( myArray );
+console.log( tail( myArray ) );
 
 
 // Implementa una función init (inmutable), tal que, dado un array como entrada devuelva todos los elementos menos el último. Utiliza los métodos que ofrece Array.prototype.
 
 const init = ( [...array] ) => {
     const x = array.length -1;
-    console.log(array.slice(0,x).toString());
+    return array.slice(0,x).join('-');
 }
-init(myArray);
+console.log( init(myArray) );
 
 
 // Implementa una función last (inmutable), tal que, dado un array como entradadevuelva el último elemento.
 
 const last = ( [...array] ) => {
     const x = array.length -1;
-    console.log(array.slice(x).toString());
+    return array.slice(x).toString();
 }
-last(myArray);
+console.log( last(myArray) );
 
 
 
 // EJERCICIO 2 - CONCAT
 
+// Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada,devuelva la concatenación de ambos. Utiliza rest / spread operators.
+
+const concat = ( [...array1], [...array2] ) => {
+    const merge = [].concat( array1, array2 );
+    return merge.join('_');
+}
+console.log( concat( myArray, myArray2 ) );
