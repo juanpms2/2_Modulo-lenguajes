@@ -25,6 +25,7 @@ tail( myArray );
 
 const init = ( [...array] ) => {
     const x = array.length -1;
-    console.log(array.slice(x).toString());
+    console.log(array.slice(0,x).toString());
 }
 init(myArray);
+
