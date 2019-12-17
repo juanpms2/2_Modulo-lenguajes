@@ -29,3 +29,12 @@ const init = ( [...array] ) => {
 }
 init(myArray);
 
+
+// Implementa una función last (inmutable), tal que, dado un array como entradadevuelva el último elemento.
+
+const last = ( [...array] ) => {
+    const x = array.length -1;
+    console.log(array.slice(x).toString());
+}
+last(myArray);
+
