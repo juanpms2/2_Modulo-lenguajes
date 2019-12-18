@@ -131,7 +131,12 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 // EJERCICIO 1 - ARRAY OPERATION
+<<<<<<< HEAD
 var myArray = [1, 2, 3, 4, 5]; // Implementa una función head (inmutable), tal que, dado un array como entrada extraiga y devuelva su primer elemento. Utiliza destructuring.
+=======
+var myArray = [1, 2, 3, 4, 5];
+var myArray2 = ["hello", "world"]; // Implementa una función head (inmutable), tal que, dado un array como entrada extraiga y devuelva su primer elemento. Utiliza destructuring.
+>>>>>>> CONCAT
 
 var head = function head(_ref) {
   var _ref2 = _toArray(_ref),
@@ -152,32 +157,77 @@ var tail = function tail(_ref3) {
   var _array2 = _toArray(array),
       rest = _array2.slice(1);
 
+<<<<<<< HEAD
   rest.forEach(function (element) {
     console.log(element);
   });
 };
 
 tail(myArray); // Implementa una función init (inmutable), tal que, dado un array como entrada devuelva todos los elementos menos el último. Utiliza los métodos que ofrece Array.prototype.
+=======
+  return rest.toString();
+};
+
+console.log(tail(myArray)); // Implementa una función init (inmutable), tal que, dado un array como entrada devuelva todos los elementos menos el último. Utiliza los métodos que ofrece Array.prototype.
+>>>>>>> CONCAT
 
 var init = function init(_ref5) {
   var _ref6 = _toArray(_ref5),
       array = _ref6.slice(0);
 
   var x = array.length - 1;
+<<<<<<< HEAD
   console.log(array.slice(0, x).toString());
 };
 
 init(myArray); // Implementa una función last (inmutable), tal que, dado un array como entradadevuelva el último elemento.
+=======
+  return array.slice(0, x).join('-');
+};
+
+console.log(init(myArray)); // Implementa una función last (inmutable), tal que, dado un array como entradadevuelva el último elemento.
+>>>>>>> CONCAT
 
 var last = function last(_ref7) {
   var _ref8 = _toArray(_ref7),
       array = _ref8.slice(0);
 
   var x = array.length - 1;
+<<<<<<< HEAD
   console.log(array.slice(x).toString());
 };
 
 last(myArray); // EJERCICIO 2 - CONCAT
+=======
+  return array.slice(x).toString();
+};
+
+console.log(last(myArray)); // EJERCICIO 2 - CONCAT
+// Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada,devuelva la concatenación de ambos. Utiliza rest / spread operators.
+
+var concat = function concat(_ref9, _ref10) {
+  var _ref11 = _toArray(_ref9),
+      array1 = _ref11.slice(0);
+
+  var _ref12 = _toArray(_ref10),
+      array2 = _ref12.slice(0);
+
+  var merge = array1.concat(array2);
+  return merge.join('_');
+};
+
+console.log(concat(myArray, myArray2)); //Implementa una versión del ejercicio anterior donde se acepten múltiples arrays de entrada (más de 2).
+
+var concat2 = function concat2() {
+  var _ref13;
+
+  var merge = (_ref13 = []).concat.apply(_ref13, arguments);
+
+  return merge.join('_');
+};
+
+console.log(concat2(myArray, myArray2, [0, 0, 0], [1, 1, 1]));
+>>>>>>> CONCAT
 },{}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
