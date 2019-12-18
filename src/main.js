@@ -46,7 +46,7 @@ console.log( last( myArray ) );
 
 const concat = ( [...array1], [...array2] ) => {
     const merge = array1.concat( array2 );
-    return merge.join('_');
+    return merge.join(' ');
 }
 console.log( concat( myArray, myArray2 ) );
 
@@ -54,6 +54,36 @@ console.log( concat( myArray, myArray2 ) );
 
 const concat2 = ( ...args ) => {
     const merge = [].concat(...args);
-    return merge.join('_');
+    return merge.join(' ');
 }
 console.log( concat2( myArray, myArray2, [0,0,0], [1,1,1] ) );
+
+
+
+// EJERCICIO 3 - CLONE MERGE
+
+// Implementa una función clone que, a partir de un objeto de entrada source devuelva un nuevo objeto con las propiedades de source.
+
+const obj = { name: "John", age: 32 };
+
+const clone = ( source ) => ( { ...source } );
+console.log( clone(obj) );
+
+// dos maneras más
+const clone2 = ( source, ...args ) =>  Object.assign( {}, ...args, source );
+const clone3 = ( source ) => JSON.parse( JSON.stringify( source ) ); //Deep clone
+console.log( clone2(obj) );
+console.log( clone3(obj) );
+
+
+// Implementa una función merge que, dados dos objetos de entrada source y target,devuelva un nuevo objeto con todas las propiedades de target y de source, y en caso de propiedades con el mismo nombre, source sobreescribe a target.
+
+const source = { name:"Maria", surname:"Ibañez", country:"SPA" };
+const target = { name:"Luisa", age:31, married:true };
+
+const merge = ( source, target ) => ( { ...target, ...source } );
+console.log( merge( source,target ) );
+
+// otra manera más
+const merge2 = ( source, target ) => clone( source, target );
+console.log( merge2( source,target ) );
