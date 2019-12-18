@@ -186,11 +186,21 @@ var concat = function concat(_ref9, _ref10) {
   var _ref12 = _toArray(_ref10),
       array2 = _ref12.slice(0);
 
-  var merge = [].concat(array1, array2);
+  var merge = array1.concat(array2);
   return merge.join('_');
 };
 
-console.log(concat(myArray, myArray2));
+console.log(concat(myArray, myArray2)); //Implementa una versión del ejercicio anterior donde se acepten múltiples arrays de entrada (más de 2).
+
+var concat2 = function concat2() {
+  var _ref13;
+
+  var merge = (_ref13 = []).concat.apply(_ref13, arguments);
+
+  return merge.join('_');
+};
+
+console.log(concat2(myArray, myArray2, [0, 0, 0], [1, 1, 1]));
 },{}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -219,7 +229,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49826" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52428" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
