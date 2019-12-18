@@ -24,8 +24,8 @@ console.log( tail( myArray ) );
 // Implementa una función init (inmutable), tal que, dado un array como entrada devuelva todos los elementos menos el último. Utiliza los métodos que ofrece Array.prototype.
 
 const init = ( [...array] ) => {
-    const x = array.length -1;
-    return array.slice(0,x).join('-');
+    const x = array.length - 1;
+    return array.slice( 0, x ).join( '-' );
 }
 console.log( init(myArray) );
 
@@ -33,10 +33,10 @@ console.log( init(myArray) );
 // Implementa una función last (inmutable), tal que, dado un array como entradadevuelva el último elemento.
 
 const last = ( [...array] ) => {
-    const x = array.length -1;
-    return array.slice(x).toString();
+    const x = array.length - 1;
+    return array.slice( x ).toString();
 }
-console.log( last(myArray) );
+console.log( last( myArray ) );
 
 
 
@@ -45,7 +45,15 @@ console.log( last(myArray) );
 // Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada,devuelva la concatenación de ambos. Utiliza rest / spread operators.
 
 const concat = ( [...array1], [...array2] ) => {
-    const merge = [].concat( array1, array2 );
+    const merge = array1.concat( array2 );
     return merge.join('_');
 }
 console.log( concat( myArray, myArray2 ) );
+
+//Implementa una versión del ejercicio anterior donde se acepten múltiples arrays de entrada (más de 2).
+
+const concat2 = ( ...args ) => {
+    const merge = [].concat(...args);
+    return merge.join('_');
+}
+console.log( concat2( myArray, myArray2, [0,0,0], [1,1,1] ) );
