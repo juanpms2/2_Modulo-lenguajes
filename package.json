@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/juanpms2/2_Modulo-lenguajes#readme",
   "devDependencies": {
-    "parcel": "^1.12.4"
+    "parcel": "^1.12.4",
+    "typescript": "^3.7.3"
   }
 }

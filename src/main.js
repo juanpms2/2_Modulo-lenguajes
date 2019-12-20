@@ -5,19 +5,13 @@ const myArray2 = [ "hello", "world" ];
 
 // Implementa una función head (inmutable), tal que, dado un array como entrada extraiga y devuelva su primer elemento. Utiliza destructuring.
  
-const head = ( [...array] ) => { 
-    const [first, ] = array;
-    return first; 
-}
+const head = ( [ first ] ) => first;
 console.log( head( myArray ) );
 
 
 // Implementa una función tail (inmutable), tal que, dado un array como entrada devuelta todos menos el primer elemento. Utiliza rest operator.
 
-const tail = ( [...array] ) => {
-    const [ , ...rest ] = array;
-    return rest.toString();
-}
+const tail = ( [ , ...rest ] ) => rest.toString();
 console.log( tail( myArray ) );
 
 
@@ -30,7 +24,7 @@ const init = ( [...array] ) => {
 console.log( init(myArray) );
 
 
-// Implementa una función last (inmutable), tal que, dado un array como entradadevuelva el último elemento.
+// Implementa una función last (inmutable), tal que, dado un array como entrada devuelva el último elemento.
 
 const last = ( [...array] ) => {
     const x = array.length - 1;
@@ -44,18 +38,12 @@ console.log( last( myArray ) );
 
 // Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada,devuelva la concatenación de ambos. Utiliza rest / spread operators.
 
-const concat = ( [...array1], [...array2] ) => {
-    const merge = array1.concat( array2 );
-    return merge.join(' ');
-}
+const concat = ( array1, array2 ) =>  array1.concat( array2 ).join(' ');
 console.log( concat( myArray, myArray2 ) );
 
 //Implementa una versión del ejercicio anterior donde se acepten múltiples arrays de entrada (más de 2).
 
-const concat2 = ( ...args ) => {
-    const merge = [].concat(...args);
-    return merge.join(' ');
-}
+const concat2 = ( ...args ) => [].concat(...args).join(' ');
 console.log( concat2( myArray, myArray2, [0,0,0], [1,1,1] ) );
 
 
@@ -84,6 +72,34 @@ const target = { name:"Luisa", age:31, married:true };
 const merge = ( source, target ) => ( { ...target, ...source } );
 console.log( merge( source,target ) );
 
-// otra manera más
-const merge2 = ( source, target ) => clone( source, target );
-console.log( merge2( source,target ) );
+
+
+
+// EJERCICIO 4 - READ BOOKS
+
+// Crea una función isBookRead que reciba una lista de libros y un título y devuelva si se ha leído o no dicho libro.
+// Un libro es un objeto con title como string y isRead como booleano. En caso de no existir el libro devolver false.
+
+const books = [
+    { title: "Harry Potter y la piedra filosofal", isRead: true },
+    { title: "Canción de hielo y fuego", isRead: false },
+    { title: "Devastación", isRead: true },
+];
+
+const isBookRead = ( books, titulo ) => {
+
+    const book = books.find( title => title.title === titulo ) || false;
+
+    if ( book.title === titulo ) {  
+            if (book.isRead === true) {
+                return `El libro ${ titulo } ha sido leido por eso devuelvo true `;
+            } else {
+                return `El libro ${ titulo } no ha sido leido por eso devuelvo false`;
+            }
+        
+    } else {
+        
+        return `El libro ${ titulo } no existe en nuestra base de datos`;
+    }
+}; 
+console.log(isBookRead(books, "Devastación"));

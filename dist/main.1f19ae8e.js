@@ -118,32 +118,31 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest(); }
 
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 // EJERCICIO 1 - ARRAY OPERATION
-<<<<<<< HEAD
-var myArray = [1, 2, 3, 4, 5]; // Implementa una función head (inmutable), tal que, dado un array como entrada extraiga y devuelva su primer elemento. Utiliza destructuring.
-=======
 var myArray = [1, 2, 3, 4, 5];
 var myArray2 = ["hello", "world"]; // Implementa una función head (inmutable), tal que, dado un array como entrada extraiga y devuelva su primer elemento. Utiliza destructuring.
->>>>>>> CONCAT
 
 var head = function head(_ref) {
-  var _ref2 = _toArray(_ref),
-      array = _ref2.slice(0);
-
-  var _array = _slicedToArray(array, 1),
-      first = _array[0];
+  var _ref2 = _slicedToArray(_ref, 1),
+      first = _ref2[0];
 
   return first;
 };
@@ -152,82 +151,123 @@ console.log(head(myArray)); // Implementa una función tail (inmutable), tal que
 
 var tail = function tail(_ref3) {
   var _ref4 = _toArray(_ref3),
-      array = _ref4.slice(0);
+      rest = _ref4.slice(1);
 
-  var _array2 = _toArray(array),
-      rest = _array2.slice(1);
-
-<<<<<<< HEAD
-  rest.forEach(function (element) {
-    console.log(element);
-  });
-};
-
-tail(myArray); // Implementa una función init (inmutable), tal que, dado un array como entrada devuelva todos los elementos menos el último. Utiliza los métodos que ofrece Array.prototype.
-=======
   return rest.toString();
 };
 
 console.log(tail(myArray)); // Implementa una función init (inmutable), tal que, dado un array como entrada devuelva todos los elementos menos el último. Utiliza los métodos que ofrece Array.prototype.
->>>>>>> CONCAT
 
 var init = function init(_ref5) {
   var _ref6 = _toArray(_ref5),
       array = _ref6.slice(0);
 
   var x = array.length - 1;
-<<<<<<< HEAD
-  console.log(array.slice(0, x).toString());
-};
-
-init(myArray); // Implementa una función last (inmutable), tal que, dado un array como entradadevuelva el último elemento.
-=======
   return array.slice(0, x).join('-');
 };
 
-console.log(init(myArray)); // Implementa una función last (inmutable), tal que, dado un array como entradadevuelva el último elemento.
->>>>>>> CONCAT
+console.log(init(myArray)); // Implementa una función last (inmutable), tal que, dado un array como entrada devuelva el último elemento.
 
 var last = function last(_ref7) {
   var _ref8 = _toArray(_ref7),
       array = _ref8.slice(0);
 
   var x = array.length - 1;
-<<<<<<< HEAD
-  console.log(array.slice(x).toString());
-};
-
-last(myArray); // EJERCICIO 2 - CONCAT
-=======
   return array.slice(x).toString();
 };
 
 console.log(last(myArray)); // EJERCICIO 2 - CONCAT
 // Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada,devuelva la concatenación de ambos. Utiliza rest / spread operators.
 
-var concat = function concat(_ref9, _ref10) {
-  var _ref11 = _toArray(_ref9),
-      array1 = _ref11.slice(0);
-
-  var _ref12 = _toArray(_ref10),
-      array2 = _ref12.slice(0);
-
-  var merge = array1.concat(array2);
-  return merge.join('_');
+var concat = function concat(array1, array2) {
+  return array1.concat(array2).join(' ');
 };
 
 console.log(concat(myArray, myArray2)); //Implementa una versión del ejercicio anterior donde se acepten múltiples arrays de entrada (más de 2).
 
 var concat2 = function concat2() {
-  var _ref13;
+  var _ref9;
 
-  var merge = (_ref13 = []).concat.apply(_ref13, arguments);
-
-  return merge.join('_');
+  return (_ref9 = []).concat.apply(_ref9, arguments).join(' ');
 };
 
-console.log(concat2(myArray, myArray2, [0, 0, 0], [1, 1, 1]));
->>>>>>> CONCAT
+console.log(concat2(myArray, myArray2, [0, 0, 0], [1, 1, 1])); // EJERCICIO 3 - CLONE MERGE
+// Implementa una función clone que, a partir de un objeto de entrada source devuelva un nuevo objeto con las propiedades de source.
+
+var obj = {
+  name: "John",
+  age: 32
+};
+
+var clone = function clone(source) {
+  return _objectSpread({}, source);
+};
+
+console.log(clone(obj)); // dos maneras más
+
+var clone2 = function clone2(source) {
+  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    args[_key - 1] = arguments[_key];
+  }
+
+  return Object.assign.apply(Object, [{}].concat(args, [source]));
+};
+
+var clone3 = function clone3(source) {
+  return JSON.parse(JSON.stringify(source));
+}; //Deep clone
+
+
+console.log(clone2(obj));
+console.log(clone3(obj)); // Implementa una función merge que, dados dos objetos de entrada source y target,devuelva un nuevo objeto con todas las propiedades de target y de source, y en caso de propiedades con el mismo nombre, source sobreescribe a target.
+
+var source = {
+  name: "Maria",
+  surname: "Ibañez",
+  country: "SPA"
+};
+var target = {
+  name: "Luisa",
+  age: 31,
+  married: true
+};
+
+var merge = function merge(source, target) {
+  return _objectSpread({}, target, {}, source);
+};
+
+console.log(merge(source, target)); // EJERCICIO 4 - READ BOOKS
+// Crea una función isBookRead que reciba una lista de libros y un título y devuelva si se ha leído o no dicho libro.
+// Un libro es un objeto con title como string y isRead como booleano. En caso de no existir el libro devolver false.
+
+var books = [{
+  title: "Harry Potter y la piedra filosofal",
+  isRead: true
+}, {
+  title: "Canción de hielo y fuego",
+  isRead: false
+}, {
+  title: "Devastación",
+  isRead: true
+}];
+
+var isBookRead = function isBookRead(books, titulo) {
+  var book = books.find(function (title) {
+    return title.title === titulo;
+  }) || false;
+
+  if (book.title === titulo) {
+    if (book.isRead === true) {
+      return "El libro ".concat(titulo, " ha sido leido por eso devuelvo true ");
+    } else {
+      return "El libro ".concat(titulo, " no ha sido leido por eso devuelvo false");
+    }
+  } else {
+    return "El libro ".concat(titulo, " no existe en nuestra base de datos");
+  }
+};
+
+console.log(isBookRead(books, "Devastación"));
 },{}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -256,7 +296,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52428" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51495" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
