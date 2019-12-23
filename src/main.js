@@ -88,18 +88,30 @@ const books = [
 
 const isBookRead = ( books, titulo ) => {
 
-    const book = books.find( title => title.title === titulo ) || false;
+    // const book = books.find( title => title.title === titulo ) || false;
 
-    if ( book.title === titulo ) {  
-            if (book.isRead === true) {
-                return `El libro ${ titulo } ha sido leido por eso devuelvo true `;
-            } else {
-                return `El libro ${ titulo } no ha sido leido por eso devuelvo false`;
-            }
+    // if ( book.title === titulo ) {  
+    //         if (book.isRead === true) {
+    //             return `El libro ${ titulo } ha sido leido por eso devuelvo true `;
+    //         } else {
+    //             return `El libro ${ titulo } no ha sido leido por eso devuelvo false`;
+    //         }
         
+    // } else {
+        
+    //     return `El libro ${ titulo } no existe en nuestra base de datos`;
+    // }
+    const book = books.find(book => book.title === titulo);
+    if(book) {
+        return book.isRead ? `El libro ${titulo} ha sido leido por eso devuelvo true` : `El libro ${titulo} no ha sido leido por eso devuelvo false`;
     } else {
         
         return `El libro ${ titulo } no existe en nuestra base de datos`;
     }
 }; 
-console.log(isBookRead(books, "Devastación"));
+
+
+console.log(isBookRead(books, "Canción de hielo y fuego"));
+
+
+

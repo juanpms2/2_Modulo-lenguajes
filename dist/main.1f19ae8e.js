@@ -252,22 +252,28 @@ var books = [{
 }];
 
 var isBookRead = function isBookRead(books, titulo) {
-  var book = books.find(function (title) {
-    return title.title === titulo;
-  }) || false;
+  // const book = books.find( title => title.title === titulo ) || false;
+  // if ( book.title === titulo ) {  
+  //         if (book.isRead === true) {
+  //             return `El libro ${ titulo } ha sido leido por eso devuelvo true `;
+  //         } else {
+  //             return `El libro ${ titulo } no ha sido leido por eso devuelvo false`;
+  //         }
+  // } else {
+  //     return `El libro ${ titulo } no existe en nuestra base de datos`;
+  // }
+  var book = books.find(function (book) {
+    return book.title === titulo;
+  });
 
-  if (book.title === titulo) {
-    if (book.isRead === true) {
-      return "El libro ".concat(titulo, " ha sido leido por eso devuelvo true ");
-    } else {
-      return "El libro ".concat(titulo, " no ha sido leido por eso devuelvo false");
-    }
+  if (book) {
+    return book.isRead ? "El libro ".concat(titulo, " ha sido leido por eso devuelvo true") : "El libro ".concat(titulo, " no ha sido leido por eso devuelvo false");
   } else {
     return "El libro ".concat(titulo, " no existe en nuestra base de datos");
   }
 };
 
-console.log(isBookRead(books, "Devastación"));
+console.log(isBookRead(books, "Canción de hielo y fuego"));
 },{}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -296,7 +302,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51495" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53083" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
