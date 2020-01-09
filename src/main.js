@@ -113,5 +113,3 @@ const isBookRead = ( books, titulo ) => {
 
 console.log(isBookRead(books, "Canción de hielo y fuego"));
 
-
-
