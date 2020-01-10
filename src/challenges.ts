@@ -42,7 +42,7 @@ const deepGet = ( obj: object, ...args: Array<string> ) => {
 
     } else {
 
-        return obj[first]; // si no es un objeto retornamos el valor de la clave pasada como argumento
+        return obj[first]; // si no es un objeto retornamos el valor de la clave en la posición pasada como argumento
 
     }
 
@@ -54,3 +54,42 @@ console.log( deepGet( myObject, "b" ) );
 console.log( deepGet( myObject, "b", "c" ) );
 console.log( deepGet( myObject, "b", "d", "f", "g" ) );
 console.log( deepGet( myObject ) );
+
+// Apartado B
+//Ahora implementa el complementario, deepSet, que permita guardar valores en profundidad. Sucomportamiento debería ser:
+
+const myObject2 = {
+    a: {
+        b: 4,
+        c: 5
+    }
+};
+
+const deepSet = ( newValue: number, obj: object, param1?: string, param2?: string ) => {
+
+    switch (newValue) {
+        case 1:
+            return obj[param1]={[param2]:newValue};
+            break;
+        case 2:
+            return obj[param1][param2] = newValue;
+            break;
+        case 3:
+            return obj[param1] = 3;
+            break;
+        default:
+            break;
+    }
+    
+}
+
+
+
+deepSet(1, myObject2, "a", "b");
+console.log(JSON.stringify(myObject2));// {a: { b: 1}}
+deepSet(2, myObject2,"a","c");
+console.log(JSON.stringify(myObject2));// {a: { b: 1, c: 2}}
+deepSet(3, myObject2,"a");
+console.log(JSON.stringify(myObject2));// {a: 3}
+deepSet(4, myObject2);
+console.log(JSON.stringify(myObject2));// Do nothing // {a: 3}
