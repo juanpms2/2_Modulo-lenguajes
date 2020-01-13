@@ -96,3 +96,31 @@ console.log(JSON.stringify(myObject2));// Do nothing // {a: 3}
 
  const unArray: (boolean | string[] | (number | (number | number[])[])[][])[] = [true,["a","b"],[[4],[5,6,[7,8,[9]]]]];
  const otroArray: (boolean | (number | string[])[])[] = [true, [1,2,3, ["hola"]]]; // el inteligence de typescript nos da el tipado
+
+
+ // 4. Trazas por consola
+console.log("TRAZAS POR CONSOLA");
+
+
+const delay = ms => new Promise( resolve => setTimeout( resolve, ms ) );
+
+const showMessage = async([time, message]) => { 
+    await delay(time);
+    console.log(message);
+};
+
+const triggers = [
+    async() => await showMessage([200,"third"]),
+    async() => await showMessage([100,"second"])
+];
+
+const run = triggers => { 
+    
+    setTimeout(() => {
+        console.log("first");    
+    }, 400);
+    triggers[1] = async() => await showMessage([300,"second"]);
+    triggers.forEach(t => t());   
+};
+
+run(triggers);
