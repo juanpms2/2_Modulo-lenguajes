@@ -98,8 +98,9 @@ console.log(JSON.stringify(myObject2));// Do nothing // {a: 3}
  const otroArray: (boolean | (number | string[])[])[] = [true, [1,2,3, ["hola"]]]; // el inteligence de typescript nos da el tipado
 
 
+
+
  // 4. Trazas por consola
-console.log("TRAZAS POR CONSOLA");
 
 
 const delay = ms => new Promise( resolve => setTimeout( resolve, ms ) );
@@ -116,6 +117,7 @@ const triggers = [
 
 const run = triggers => { 
     
+    setTimeout(() => { console.log("4. TRAZAS POR CONSOLA") }, 100);
     setTimeout(() => {
         console.log("first");    
     }, 400);
@@ -124,3 +126,30 @@ const run = triggers => {
 };
 
 run(triggers);
+
+
+
+
+
+// 5. memoización
+console.log("5. MEMOIZACIÓN");
+
+// Apartado A
+
+const expensiveFunction = () => {
+    console.log("Una única llamada");
+    return 3.1415;
+}
+
+const memoize = () => {
+    return expensiveFunction();
+}
+const memoized = memoize();
+
+console.log(memoized);
+console.log(memoized);
+console.log(memoized);
+
+//Apartado B
+
+// Apartado C
