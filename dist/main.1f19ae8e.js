@@ -137,6 +137,7 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 // EJERCICIO 1 - ARRAY OPERATION
+console.log("EJERCICIO 1 - ARRAY OPERATION");
 var myArray = [1, 2, 3, 4, 5];
 var myArray2 = ["hello", "world"]; // Implementa una función head (inmutable), tal que, dado un array como entrada extraiga y devuelva su primer elemento. Utiliza destructuring.
 
@@ -177,7 +178,8 @@ var last = function last(_ref7) {
 };
 
 console.log(last(myArray)); // EJERCICIO 2 - CONCAT
-// Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada,devuelva la concatenación de ambos. Utiliza rest / spread operators.
+
+console.log("EJERCICIO 2 - CONCAT"); // Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada,devuelva la concatenación de ambos. Utiliza rest / spread operators.
 
 var concat = function concat(array1, array2) {
   return array1.concat(array2).join(' ');
@@ -192,7 +194,8 @@ var concat2 = function concat2() {
 };
 
 console.log(concat2(myArray, myArray2, [0, 0, 0], [1, 1, 1])); // EJERCICIO 3 - CLONE MERGE
-// Implementa una función clone que, a partir de un objeto de entrada source devuelva un nuevo objeto con las propiedades de source.
+
+console.log("EJERCICIO 3 - CLONE MERGE"); // Implementa una función clone que, a partir de un objeto de entrada source devuelva un nuevo objeto con las propiedades de source.
 
 var obj = {
   name: "John",
@@ -237,7 +240,8 @@ var merge = function merge(source, target) {
 };
 
 console.log(merge(source, target)); // EJERCICIO 4 - READ BOOKS
-// Crea una función isBookRead que reciba una lista de libros y un título y devuelva si se ha leído o no dicho libro.
+
+console.log("EJERCICIO 4 - READ BOOKS"); // Crea una función isBookRead que reciba una lista de libros y un título y devuelva si se ha leído o no dicho libro.
 // Un libro es un objeto con title como string y isRead como booleano. En caso de no existir el libro devolver false.
 
 var books = [{
@@ -302,7 +306,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53083" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54805" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

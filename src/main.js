@@ -1,4 +1,5 @@
 // EJERCICIO 1 - ARRAY OPERATION
+console.log("EJERCICIO 1 - ARRAY OPERATION");
 
 const myArray = [ 1, 2, 3, 4, 5 ];
 const myArray2 = [ "hello", "world" ];
@@ -35,6 +36,7 @@ console.log( last( myArray ) );
 
 
 // EJERCICIO 2 - CONCAT
+console.log("EJERCICIO 2 - CONCAT");
 
 // Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada,devuelva la concatenación de ambos. Utiliza rest / spread operators.
 
@@ -49,6 +51,7 @@ console.log( concat2( myArray, myArray2, [0,0,0], [1,1,1] ) );
 
 
 // EJERCICIO 3 - CLONE MERGE
+console.log("EJERCICIO 3 - CLONE MERGE");
 
 // Implementa una función clone que, a partir de un objeto de entrada source devuelva un nuevo objeto con las propiedades de source.
 
@@ -76,6 +79,7 @@ console.log( merge( source,target ) );
 
 
 // EJERCICIO 4 - READ BOOKS
+console.log("EJERCICIO 4 - READ BOOKS");
 
 // Crea una función isBookRead que reciba una lista de libros y un título y devuelva si se ha leído o no dicho libro.
 // Un libro es un objeto con title como string y isRead como booleano. En caso de no existir el libro devolver false.
@@ -112,6 +116,4 @@ const isBookRead = ( books, titulo ) => {
 
 
 console.log(isBookRead(books, "Canción de hielo y fuego"));
-
-
 
